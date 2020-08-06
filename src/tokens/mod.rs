@@ -1,4 +1,5 @@
 pub mod constants;
+pub mod mappings;
 
 #[derive(Clone, Debug, PartialOrd, PartialEq)]
 pub enum Token {
@@ -24,8 +25,10 @@ pub enum BlockToken {
 pub enum LineToken {
     Ruler,
     Import,
-    ListItem,
+    ListItem(bool),
     Centered,
+    Quote,
+    Checkbox(bool),
 }
 
 #[derive(Clone, Debug, PartialOrd, PartialEq)]
@@ -38,6 +41,14 @@ pub enum InlineToken {
     Mono,
     Math,
     Emoji,
+    Color,
+    ColorReset,
+    PlaceholderOpen,
+    PlaceholderClose,
+    BibRef,
+    TableSpacerLeft,
+    TableSpacerRight,
+    Image,
 }
 
 #[derive(Clone, Debug, PartialOrd, PartialEq)]
@@ -46,4 +57,15 @@ pub enum TextToken {
     Indent(u32),
     InlineWhitespace,
     LineBreak,
+    Eq,
+    Pipe,
+    Colon,
+    ParenthesesOpen,
+    ParenthesesClose,
+    BracketsOpen,
+    BracketsClose,
+    BracesOpen,
+    BracesClose,
+    SingleString,
+    DoubleString,
 }

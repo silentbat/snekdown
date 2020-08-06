@@ -9,8 +9,3 @@ pub const T_HEADER_1: TokenConstant = &["#"];
 
 pub const T_CODE_BLOCK: TokenConstant = &["```"];
 pub const T_MATH_BLOCK: TokenConstant = &["$$$"];
-
-pub const T_TABLE_SPACER_LEFT: TokenConstant = &["|--"];
-pub const T_TABLE_SPACER_RIGHT: TokenConstant = &["--|"];
-
-pub const T_RULER: TokenConstant = &["---", "___", "- - -", "_ _ _ "];

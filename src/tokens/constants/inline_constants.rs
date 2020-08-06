@@ -29,10 +29,13 @@ pub const T_PLACEHOLDER_CLOSE: TokenConstant = &["]]"];
 
 pub const T_BIBREF_OPEN: TokenConstant = &["[^"];
 
-pub const T_COLOR: TokenConstant = &[":"];
+pub const T_COLON: TokenConstant = &[":"];
 pub const T_EQ: TokenConstant = &["="];
 pub const T_PIPE: TokenConstant = &["|"];
 
 pub const T_IMG: TokenConstant = &["!["];
 pub const T_INLINE_WHITESPACE: TokenConstant = &[" ", "\t"];
 pub const T_LINEBREAK: TokenConstant = &["\n", "\x15\n"];
+
+pub const T_TABLE_SPACER_LEFT: TokenConstant = &["|--"];
+pub const T_TABLE_SPACER_RIGHT: TokenConstant = &["--|"];
