@@ -1,6 +1,7 @@
 pub(crate) mod block;
 pub(crate) mod inline;
 pub(crate) mod line;
+pub mod tokenizer;
 
 use self::block::ParseBlock;
 use crate::elements::{Document, ImportAnchor};
