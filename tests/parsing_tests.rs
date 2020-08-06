@@ -1,6 +1,6 @@
 use snekdown::elements::Block;
 use snekdown::parse;
-use snekdown::Parser;
+use snekdown::SingleStepParser;
 
 macro_rules! count_block_elements {
     ($document:expr, $filter:expr) => {
@@ -15,7 +15,7 @@ macro_rules! count_block_elements {
 
 #[test]
 fn it_inits() {
-    let _ = Parser::new("".to_string(), None);
+    let _ = SingleStepParser::new("".to_string(), None);
 }
 
 #[test]

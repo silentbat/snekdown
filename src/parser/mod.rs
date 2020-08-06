@@ -2,6 +2,7 @@ pub(crate) mod block;
 pub(crate) mod inline;
 pub(crate) mod line;
 pub mod tokenizer;
+pub mod tree_parser;
 
 use self::block::ParseBlock;
 use crate::elements::{Document, ImportAnchor};
@@ -19,7 +20,7 @@ use std::thread;
 pub type ParseResult<T> = TapeResult<T>;
 pub type ParseError = TapeError;
 
-pub struct Parser {
+pub struct SingleStepParser {
     pub(crate) ctm: CharTapeMachine,
     section_nesting: u8,
     sections: Vec<u8>,
@@ -34,7 +35,7 @@ pub struct Parser {
     pub(crate) parse_variables: bool,
 }
 
-impl Parser {
+impl SingleStepParser {
     /// Creates a new parser from a path
     pub fn new_from_file(path: PathBuf) -> Result<Self, io::Error> {
         let f = File::open(&path)?;
@@ -54,7 +55,7 @@ impl Parser {
         } else {
             None
         };
-        Parser::create(
+        SingleStepParser::create(
             path,
             Arc::new(Mutex::new(Vec::new())),
             false,
@@ -179,7 +180,7 @@ impl Parser {
         let config = self.document.config.clone();
 
         let _ = thread::spawn(move || {
-            let mut parser = Parser::child_from_file(path, paths).unwrap();
+            let mut parser = SingleStepParser::child_from_file(path, paths).unwrap();
             parser.set_config(config);
             let document = parser.parse();
             anchor_clone.write().unwrap().set_document(document);

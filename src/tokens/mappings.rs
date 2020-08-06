@@ -33,7 +33,7 @@ pub(crate) fn get_mappings() -> Vec<(TokenConstant, Token)> {
         (T_EMOJI, Inline(InlineToken::Emoji)),
         (T_COLOR_OPEN, Inline(InlineToken::Color)),
         (T_COLOR_RESET, Inline(InlineToken::ColorReset)),
-        (T_IMG, Inline(InlineToken::Image)),
+        (T_IMG, Inline(InlineToken::ImageOpen)),
         (T_PLACEHOLDER_OPEN, Inline(InlineToken::PlaceholderOpen)),
         (T_PLACEHOLDER_CLOSE, Inline(InlineToken::PlaceholderClose)),
         (T_TABLE_SPACER_LEFT, Inline(InlineToken::TableSpacerLeft)),

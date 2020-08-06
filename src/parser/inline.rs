@@ -5,7 +5,7 @@ use crate::parser::block::ParseBlock;
 use crate::references::bibliography::BibReference;
 use crate::references::configuration::keys::BIB_REF_DISPLAY;
 use crate::references::templates::{GetTemplateVariables, Template, TemplateVariable};
-use crate::Parser;
+use crate::SingleStepParser;
 use std::collections::HashMap;
 use std::sync::{Arc, RwLock};
 
@@ -33,7 +33,7 @@ pub(crate) trait ParseInline {
     fn parse_template(&mut self) -> ParseResult<Template>;
 }
 
-impl ParseInline for Parser {
+impl ParseInline for SingleStepParser {
     /// parses Inline surrounded by characters
     fn parse_surrounded(&mut self, surrounding: &char) -> ParseResult<Inline> {
         let start_index = self.ctm.get_index();

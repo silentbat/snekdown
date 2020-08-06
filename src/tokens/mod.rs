@@ -48,7 +48,7 @@ pub enum InlineToken {
     BibRef,
     TableSpacerLeft,
     TableSpacerRight,
-    Image,
+    ImageOpen,
 }
 
 #[derive(Clone, Debug, PartialOrd, PartialEq)]

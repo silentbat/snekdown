@@ -8,5 +8,5 @@ pub mod references;
 pub mod tokens;
 pub mod utils;
 
-pub use parser::Parser;
+pub use parser::SingleStepParser;
 pub use utils::parsing;

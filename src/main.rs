@@ -1,7 +1,7 @@
 use colored::Colorize;
 use notify::{watcher, RecursiveMode, Watcher};
 use snekdown::format::html::ToHtml;
-use snekdown::Parser;
+use snekdown::SingleStepParser;
 use std::fs::write;
 use std::path::PathBuf;
 use std::sync::mpsc::channel;
@@ -76,9 +76,9 @@ fn watch(opt: &Opt) {
 }
 
 /// Renders the document to the output path
-fn render(opt: &Opt) -> Parser {
+fn render(opt: &Opt) -> SingleStepParser {
     let start = Instant::now();
-    let mut parser = Parser::new_from_file(opt.input.clone()).unwrap();
+    let mut parser = SingleStepParser::new_from_file(opt.input.clone()).unwrap();
     let document = parser.parse();
     println!(
         "{}",

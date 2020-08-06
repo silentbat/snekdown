@@ -5,7 +5,7 @@ use crate::elements::{
 };
 use crate::parser::inline::ParseInline;
 use crate::parser::line::ParseLine;
-use crate::Parser;
+use crate::SingleStepParser;
 
 pub(crate) trait ParseBlock {
     fn parse_block(&mut self) -> ParseResult<Block>;
@@ -19,7 +19,7 @@ pub(crate) trait ParseBlock {
     fn parse_import(&mut self) -> ParseResult<Import>;
 }
 
-impl ParseBlock for Parser {
+impl ParseBlock for SingleStepParser {
     /// Parses a block Token
     fn parse_block(&mut self) -> ParseResult<Block> {
         if let Some(section) = self.section_return {

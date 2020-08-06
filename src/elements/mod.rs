@@ -1,3 +1,8 @@
+pub mod anchor_node;
+pub mod document;
+pub mod node;
+pub mod section;
+pub mod section_anchors;
 pub mod tokens;
 
 use crate::references::bibliography::{BibEntry, BibReference, Bibliography};

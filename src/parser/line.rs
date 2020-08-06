@@ -3,7 +3,7 @@ use crate::elements::tokens::*;
 use crate::elements::{Cell, Centered, Header, Line, ListItem, Row, Ruler, TextLine};
 use crate::parser::inline::ParseInline;
 use crate::references::bibliography::BibEntry;
-use crate::Parser;
+use crate::SingleStepParser;
 use std::sync::{Arc, RwLock};
 
 pub(crate) trait ParseLine {
@@ -17,7 +17,7 @@ pub(crate) trait ParseLine {
     fn parse_bib_entry(&mut self) -> ParseResult<Arc<RwLock<BibEntry>>>;
 }
 
-impl ParseLine for Parser {
+impl ParseLine for SingleStepParser {
     /// parses inline definitions
     fn parse_line(&mut self) -> ParseResult<Line> {
         if self.ctm.check_eof() {
