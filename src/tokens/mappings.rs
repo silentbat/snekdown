@@ -5,7 +5,7 @@ use crate::tokens::constants::TokenConstant;
 use crate::tokens::Token::{Block, Inline, Line, Text};
 use crate::tokens::{BlockToken, InlineToken, LineToken, TextToken, Token};
 
-fn get_mappings() -> Vec<(TokenConstant, Token)> {
+pub(crate) fn get_mappings() -> Vec<(TokenConstant, Token)> {
     vec![
         (T_HEADER_6, Block(BlockToken::H6)),
         (T_HEADER_5, Block(BlockToken::H5)),
